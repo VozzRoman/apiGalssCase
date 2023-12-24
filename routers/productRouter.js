@@ -4,6 +4,9 @@ import ctrlCreateProduct from '../ctrl/products/create.js';
 import ctrlFindProduct from '../ctrl/products/find.js';
 import ctrlUpdateProduct from '../ctrl/products/update.js';
 import ctrlDeletrProduct from '../ctrl/products/delete.js';
+// import { validation } from '../middlware/schemaValidator.js';
+// import { productJoiSchema } from '../models/productModel.js';
+
 const router = express.Router();
 
 //Roots
