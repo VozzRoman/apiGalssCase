@@ -27,10 +27,6 @@ app.use((req, res) => {
 	res.status(404).json({message: "не вірний маршрут"});
 })
 
-// app.use((err, req, res, next) => {
-// 	const { status = 500, message = "спробуй ще раз" } = err;
-// 	res.status(status).json({ message });
-//  });
 
 app.use((err, req, res, next) => {
 	console.error(err); // Выводите ошибку в консоль для дополнительной диагностики
