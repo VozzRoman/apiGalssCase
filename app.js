@@ -3,6 +3,7 @@ import cors from 'cors';
 import morgan from 'morgan';
 import dotenv from 'dotenv';
 import productRouter from "./routers/productRouter.js";
+import callsRouter from "./routers/callsRouter.js";
 import connection from './dastabase.js';
 import fileuploader from 'express-fileupload';
 
@@ -21,6 +22,7 @@ app.use(cors());
 
 //Маршпути
 app.use("/api/products", productRouter);
+app.use("/api/calls", callsRouter);
 
 
 app.use((req, res) => {

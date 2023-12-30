@@ -11,8 +11,8 @@ const productSchema = new Schema({
 	size: {type: Array, required: true},
 	price: {type: String, required: true},
 	salePrice: {type: String, required: true},
-	sizeChart: {type: String, required: true},
-	images: {type: Array, required: true},
+	sizeChart: {type: String},
+	images: {type: Array, required: true },
 	navImages: {type: Array, required: true},
 },
 {versionKey: false, timestamps: true}

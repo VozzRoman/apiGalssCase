@@ -8,7 +8,7 @@ const createProd = asyncHeandler(async (req, res) => {
 	const pathSizeChart = [];
 
 
-    // Проверяем наличие ожидаемых файлов в req.files
+   //  Проверяем наличие ожидаемых файлов в req.files
     if (!req.files || !req.files.images || !req.files.navImages) {
       return res.status(400).json({
         code: 400,
@@ -18,8 +18,8 @@ const createProd = asyncHeandler(async (req, res) => {
     }
 		//Получаем фотки с фронта на сервер, удаляем с сервера и кладем на Клаудінарій
 		await getSizeGrid(req.files, pathSizeChart);
-		await getArrayImages(req.files.images, pathImages)
-		await getArrayImages(req.files.navImages, pathNavImages);
+		await getArrayImages(req.files?.images, pathImages)
+		await getArrayImages(req.files?.navImages, pathNavImages);
 	
 
 		const product = await ProductModel.create(

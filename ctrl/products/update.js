@@ -12,7 +12,7 @@ const updateProd = asyncHeandler(async (req, res) => {
 	const pathImages = [];
 	const pathNavImages = [];
 	const pathSizeChart = [];
-	    // Проверяем наличие ожидаемых файлов в req.files
+	   //  Проверяем наличие ожидаемых файлов в req.files
 		 if (!req.files || !req.files.images || !req.files.navImages) {
 			return res.status(400).json({
 			  code: 400,
@@ -31,7 +31,8 @@ const updateProd = asyncHeandler(async (req, res) => {
 			sizeChart: pathSizeChart.toString(),
 			images: pathImages,
 			navImages: pathNavImages,
-		 })
+		 }, {new: true})
+		 console.log(product);
 		 if(!product){
 			throw createErrors(400, "network problem");
 		 }
