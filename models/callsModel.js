@@ -15,5 +15,5 @@ export const CallsModel = model("call", callsSchema);
 export const callsJoiSchema = Joi.object({
 	name: Joi.string().required(),
 	phone: Joi.string().required(),
-	done: Joi.string(),
+	done: Joi.boolean(),
  });

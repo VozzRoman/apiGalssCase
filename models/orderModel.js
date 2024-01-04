@@ -12,6 +12,7 @@ const ordersSchema = new Schema({
 	size: {type: String, required: true},
 	price: {type: String, required: true},
 	product: {type: String, required: true},
+	done: {type: Boolean},
 },
 {versionKey: false, timestamps: true}
 );
