@@ -19,7 +19,20 @@ app.use(fileuploader());
 app.use(express.static("uploads"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(cors());
+const allowedOrigins = ['http://allowed-domain-1.com', 'http://allowed-domain-2.com']
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true, // дозволяє передавати кредити (наприклад, куки)
+};
+app.use(cors(corsOptions));
+
 
 
 //Маршпути
