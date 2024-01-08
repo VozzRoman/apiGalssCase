@@ -6,14 +6,15 @@ import ctrlCreateCalls from "../ctrl/calls/create.js";
 import ctrlFindCalls from "../ctrl/calls/find.js";
 import { validation } from "../middlware/schemaValidator.js";
 import { callsJoiSchema } from "../models/callsModel.js";
+import authinticate from "../middlware/authinticate.js";
 
 const router = express.Router();
 
 
-router.get("/", ctrlGetAllCalls);
-router.post("/", validation(callsJoiSchema), ctrlCreateCalls);
-router.get("/:id", ctrlFindCalls);
-router.delete("/:id", ctrlDeleteCalls);
-router.put("/:id", ctrlUPdateCalls);
+router.get("/", authinticate, ctrlGetAllCalls);
+router.post("/", authinticate, validation(callsJoiSchema), ctrlCreateCalls);
+router.get("/:id", authinticate, ctrlFindCalls);
+router.delete("/:id", authinticate, ctrlDeleteCalls);
+router.put("/:id", authinticate, ctrlUPdateCalls);
 
 export default router;

@@ -24,7 +24,7 @@ const authinticate = async (req, res, next) => {
     req.user = user;
     if (!user || !user.accessToken || user.accessToken !== token) {
 		console.log(user.accessToken, token);
-      next(createError(401, "token false"));
+      next(createError(401, "не зареестрований"));
     }
     next();
   } catch (error) {

@@ -4,15 +4,16 @@ import ctrlCreateOrders from "../ctrl/orders/create.js";
 import ctrlFindOrder from "../ctrl/orders/find.js";
 import ctrlDeleteOrder from "../ctrl/orders/delete.js";
 import ctrlUpdateOrder from "../ctrl/orders/update.js";
+import authinticate from "../middlware/authinticate.js";
 
 
 
 const router = express.Router();
 
-router.get("/", ctrlGetAllOrders);
-router.post("/", ctrlCreateOrders);
-router.get("/:id", ctrlFindOrder);
-router.delete("/:id", ctrlDeleteOrder);
-router.put("/:id", ctrlUpdateOrder);
+router.get("/", authinticate, ctrlGetAllOrders);
+router.post("/", authinticate, ctrlCreateOrders);
+router.get("/:id", authinticate, ctrlFindOrder);
+router.delete("/:id", authinticate, ctrlDeleteOrder);
+router.put("/:id", authinticate, ctrlUpdateOrder);
 
 export default router;

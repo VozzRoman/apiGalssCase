@@ -11,10 +11,10 @@ import  authinticate  from '../middlware/authinticate.js';
 const router = express.Router();
 
 //Roots
-router.get("/", authinticate, ctrlGetAllProducts);
-router.post("/", ctrlCreateProduct);
-router.get("/:id", ctrlFindProduct);
-router.put("/:id", ctrlUpdateProduct);
-router.delete("/:id", ctrlDeletrProduct);
+router.get("/", ctrlGetAllProducts);
+router.post("/", authinticate, ctrlCreateProduct);
+router.get("/:id", authinticate, ctrlFindProduct);
+router.put("/:id", authinticate, ctrlUpdateProduct);
+router.delete("/:id", authinticate, ctrlDeletrProduct);
 
 export default router;
