@@ -5,12 +5,13 @@ import dotenv from 'dotenv';
 import productRouter from "./routers/productRouter.js";
 import callsRouter from "./routers/callsRouter.js";
 import ordersRouter from "./routers/ordersRouter.js";
+import authUser from "./routers/authUser.js";
 import connection from './dastabase.js';
 import fileuploader from 'express-fileupload';
 
 
 dotenv.config();
-
+console.log(process.env.SECRET_KEY);
 const app = express();
 
 const logger = process.env === "development" ? "dev" : "short";
@@ -39,6 +40,7 @@ app.use(cors());
 app.use("/api/products", productRouter);
 app.use("/api/calls", callsRouter);
 app.use("/api/orders", ordersRouter);
+app.use("/api/auth", authUser);
 
 
 app.use((req, res) => {

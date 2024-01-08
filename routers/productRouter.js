@@ -4,13 +4,14 @@ import ctrlCreateProduct from '../ctrl/products/create.js';
 import ctrlFindProduct from '../ctrl/products/find.js';
 import ctrlUpdateProduct from '../ctrl/products/update.js';
 import ctrlDeletrProduct from '../ctrl/products/delete.js';
+import  authinticate  from '../middlware/authinticate.js';
 // import { validation } from '../middlware/schemaValidator.js';
 // import { productJoiSchema } from '../models/productModel.js';
 
 const router = express.Router();
 
 //Roots
-router.get("/", ctrlGetAllProducts);
+router.get("/", authinticate, ctrlGetAllProducts);
 router.post("/", ctrlCreateProduct);
 router.get("/:id", ctrlFindProduct);
 router.put("/:id", ctrlUpdateProduct);
