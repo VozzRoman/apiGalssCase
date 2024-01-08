@@ -4,10 +4,6 @@ import { UserModel } from "../models/userModel.js";
 import dotenv from 'dotenv';
 dotenv.config();
 
-
-console.log("SEC--->" ,process.env.ACCESS_SECRET_KEY);
-console.log("SEC2--->" ,process.env.REFRESH_SECRET_KEY);
-
 const authinticate = async (req, res, next) => {
   const { authorization = "" } = req.headers;
   const [bearer, token] = authorization.split(" ");
