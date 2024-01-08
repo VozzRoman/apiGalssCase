@@ -17,17 +17,17 @@ const refresh = asyncHeandler (async(req, res) => {
 	const accessToken = jwt.sign({id}, process.env.ACCESS_SECRET_KEY, {
 		expiresIn: "1m",
 	 });
-	 const refreshToken = jwt.sign({id}, process.env.REFRESH_SECRET_KEY, {
+	 const newRefreshToken = jwt.sign({id: user._id}, process.env.REFRESH_SECRET_KEY, {
 		expiresIn: "1d",
 	 });
 
 	 await UserModel.findByIdAndUpdate(user._id, {
 		accessToken,
-		refreshToken,
+		refreshToken: newRefreshToken,
 	 })
 	 
 	 console.log(req.headers);
-	 res.json({ accessToken, refreshToken});
+	 res.json({ accessToken, refreshToken: newRefreshToken});
 })
 
 export default refresh;
