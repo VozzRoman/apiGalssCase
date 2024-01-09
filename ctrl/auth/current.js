@@ -7,10 +7,8 @@ const current = asyncHeandler (async(req, res) => {
 	res.json({
 		code:"200",
 		status: "ok",
-		data:{
-			name,
-			email
-		}
+		name,
+		email
 	});
 })
 
