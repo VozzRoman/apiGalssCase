@@ -37,6 +37,7 @@ const signIn = asyncHeandler(async(req, res) => {
 res.json({
 	code: 200,
 	satus: "ok",
+	name: credential.name,
 	email,
 	accessToken,
 	refreshToken,
