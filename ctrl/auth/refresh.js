@@ -15,7 +15,7 @@ const refresh = asyncHeandler (async(req, res) => {
 		throw createError(403, "Invalid refreshToken");
 	}
 	const accessToken = jwt.sign({id}, process.env.ACCESS_SECRET_KEY, {
-		expiresIn: "1m",
+		expiresIn: "30m",
 	 });
 	 const newRefreshToken = jwt.sign({id: user._id}, process.env.REFRESH_SECRET_KEY, {
 		expiresIn: "1d",
