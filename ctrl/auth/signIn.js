@@ -10,6 +10,7 @@ dotenv.config();
 
 const signIn = asyncHeandler(async(req, res) => {
 	const {email, password} = req.body;
+	console.log(req.body);
 	const credential = await UserModel.findOne({email})
 	if(!credential){
 		throw createErrors(401, `Пароль або Ім'я користувача не вірне` )
@@ -36,6 +37,7 @@ const signIn = asyncHeandler(async(req, res) => {
 res.json({
 	code: 200,
 	satus: "ok",
+	email,
 	accessToken,
 	refreshToken,
 
