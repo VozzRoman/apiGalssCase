@@ -26,7 +26,7 @@ const signIn = asyncHeandler(async(req, res) => {
 
 	// const token = jwt.sign(payload, process.env.SECRET_KEY, {expiresIn:"60h"})
 	const accessToken = jwt.sign(payload, process.env.ACCESS_SECRET_KEY, {
-		expiresIn: "30m",
+		expiresIn: "1m",
 	 });
 	 const refreshToken = jwt.sign(payload, process.env.REFRESH_SECRET_KEY, {
 		expiresIn: "1d",
