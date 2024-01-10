@@ -6,6 +6,7 @@ import { UserModel } from "../../models/userModel.js";
 // import updateToken from "./updateToken.js";
 dotenv.config();
 const refresh = asyncHeandler (async(req, res) => {
+	console.log(req.body);
 	const {refreshToken: token} = req.body
 	const {id} = jwt.verify(token, process.env.REFRESH_SECRET_KEY);
 
@@ -15,7 +16,7 @@ const refresh = asyncHeandler (async(req, res) => {
 		throw createError(403, "Invalid refreshToken");
 	}
 	const accessToken = jwt.sign({id}, process.env.ACCESS_SECRET_KEY, {
-		expiresIn: "1m",
+		expiresIn: "2m",
 	 });
 	 const newRefreshToken = jwt.sign({id: user._id}, process.env.REFRESH_SECRET_KEY, {
 		expiresIn: "1d",

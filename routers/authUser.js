@@ -13,7 +13,7 @@ const route = express.Router();
 
 route.post('/signUp', validation(userSignUpJoiSchema) ,ctrlSignUp);
 route.post('/signIn', validation(userSignInJoiSchema) ,ctrlSignIn);
-route.post('/refresh', authinticate, ctrlRefresh);
+route.post('/refresh', ctrlRefresh);
 route.post('/logout', authinticate, ctrlLogout);
 route.get('/current', authinticate, ctrlCurrent);
 

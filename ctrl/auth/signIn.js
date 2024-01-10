@@ -31,6 +31,7 @@ const signIn = asyncHeandler(async(req, res) => {
 	 const refreshToken = jwt.sign(payload, process.env.REFRESH_SECRET_KEY, {
 		expiresIn: "1d",
 	 });
+	 
 
 	await UserModel.findByIdAndUpdate(credential._id, {accessToken, refreshToken});
 
