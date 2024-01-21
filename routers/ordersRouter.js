@@ -11,7 +11,7 @@ import authinticate from "../middlware/authinticate.js";
 const router = express.Router();
 
 router.get("/", authinticate, ctrlGetAllOrders);
-router.post("/", authinticate, ctrlCreateOrders);
+router.post("/", ctrlCreateOrders);
 router.get("/:id", authinticate, ctrlFindOrder);
 router.delete("/:id", authinticate, ctrlDeleteOrder);
 router.put("/:id", authinticate, ctrlUpdateOrder);

@@ -12,7 +12,7 @@ const router = express.Router();
 
 
 router.get("/", authinticate, ctrlGetAllCalls);
-router.post("/", authinticate, validation(callsJoiSchema), ctrlCreateCalls);
+router.post("/", validation(callsJoiSchema), ctrlCreateCalls);
 router.get("/:id", authinticate, ctrlFindCalls);
 router.delete("/:id", authinticate, ctrlDeleteCalls);
 router.put("/:id", authinticate, ctrlUPdateCalls);

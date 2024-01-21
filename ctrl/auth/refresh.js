@@ -6,7 +6,7 @@ import { UserModel } from "../../models/userModel.js";
 // import updateToken from "./updateToken.js";
 dotenv.config();
 const refresh = asyncHeandler (async(req, res) => {
-	console.log(req.body);
+	console.log("getToken", req.body);
 	const {refreshToken: token} = req.body
 	const {id} = jwt.verify(token, process.env.REFRESH_SECRET_KEY);
 
