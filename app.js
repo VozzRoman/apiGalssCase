@@ -31,6 +31,7 @@ const corsOptions = {
   },
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true, // дозволяє передавати кредити (наприклад, куки)
+  exposedHeaders: ['Access-Control-Allow-Origin'],
 };
 app.use(cors(corsOptions));
 
