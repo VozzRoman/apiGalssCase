@@ -20,19 +20,13 @@ app.use(fileuploader());
 app.use(express.static("uploads"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-const allowedOrigins = ['https://glasscase.kiev.ua/', 'http://localhost:3000/']
+
 const corsOptions = {
-  origin: function (origin, callback) {
-    if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  credentials: true, // дозволяє передавати кредити (наприклад, куки)
-  exposedHeaders: ['Access-Control-Allow-Origin'],
-};
+	origin: 'https://glasscase.kiev.ua',
+	methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+	credentials: true,
+	exposedHeaders: ['Access-Control-Allow-Origin'],
+ };
 app.use(cors(corsOptions));
 
 
