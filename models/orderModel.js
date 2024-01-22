@@ -13,6 +13,7 @@ const ordersSchema = new Schema({
 	price: {type: String, required: true},
 	product: {type: String, required: true},
 	done: {type: Boolean},
+	provider: {type: String},
 },
 {versionKey: false, timestamps: true}
 );
