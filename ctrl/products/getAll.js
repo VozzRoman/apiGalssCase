@@ -7,6 +7,7 @@ const getAll = asyncHeandler(async (req, res) => {
 	if(!products){
 		createErrors(400, "товару немає!")
 	}
+	res.header('Access-Control-Allow-Origin', 'https://glasscase.kiev.ua');
 	res.json({
 		code: 200,
 		staus:'ok',
