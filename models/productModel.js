@@ -12,6 +12,7 @@ const productSchema = new Schema({
 	price: {type: String, required: true},
 	salePrice: {type: String, required: true},
 	sizeChart: {type: String},
+	provider: {type: String},
 	images: {type: Array, required: true },
 	navImages: {type: Array, required: true},
 },
