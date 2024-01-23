@@ -10,7 +10,7 @@ const productSchema = new Schema({
 	sex: {type: String, required: true},
 	size: {type: Array, required: true},
 	price: {type: String, required: true},
-	salePrice: {type: String, required: true},
+	salePrice: {type: String},
 	sizeChart: {type: String},
 	provider: {type: String},
 	images: {type: Array, required: true },
